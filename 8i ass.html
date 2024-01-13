@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <h1>Lets Play</h1>
+    <br><br>
+    <button onclick="checkk('heads')"> Heads </button>
+    <button onclick="checkk('tails')"> Tails </button>
+    <button onclick="localStorage.removeItem('score');"> Reset score </button>
+    <p id="showData"> </p>
+    
+    <script>
+
+        let score = JSON.parse(localStorage.getItem('score')) || {
+            win : 0,
+            lose : 0
+        }
+
+      function checkk(userChoice){  
+            const randomNumber = Math.random();
+            let result;
+
+            if (randomNumber < 0.5) {
+                result = 'heads';
+            } else {
+                result = 'tails';
+            }
+      
+
+            
+            if (userChoice === result) {
+                console.log('You win!');
+                score.win++;
+            } else {
+                console.log('You lose!');
+                score.lose++;
+            }
+
+        localStorage.setItem('score',JSON.stringify(score));
+        document.getElementById('showData').innerText = "Wins: "+score.win+" , "+" Lose: "+score.lose;
+
+
+
+    }
+
+    </script>
+  </body>
+</html>

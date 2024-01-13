@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Document</title>
+    <style>
+        .subscribe-Button {
+            border: none;
+            background-color: black;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 18px;
+            font-weight: bold;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+    </style>
+
+</head>
+<body>
+    <p>Youtube Subscribe  </p>
+    <button onclick="subsButton()" class="js-subscribe-button subscribe-Button" >Subscribe</button>
+
+    <script>
+        function subsButton(){
+                let isClicked = document.querySelector('.js-subscribe-button');
+                    
+                if(isClicked.innerHTML ==='Subscribe' ){
+                    isClicked.innerHTML = 'Subscribed';
+                } else{
+                    isClicked.innerHTML='Subscribe';
+                }
+           
+        }
+
+    </script>
+
+
+</body>
+</html>

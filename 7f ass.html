@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Converter</title>
+</head>
+<body>
+    <B><i> Please type temp : </i></B>
+    <input type =  "text" id="temperature" placeholder="Enter your value here"> 
+    <br><br>
+    <input type ="radio" name = "radioG" id="C-radio"> Given Temp is in Fehrenheit - Convert to Celcius <Br><Br>
+    <input type ="radio" name = "radioG" id="F-radio"> Given Temp is in Celcius - Convert to Fehrenheit
+    <br><br>
+    <button onclick="localStorage.removeItem('CTemp'); localStorage.removeItem('fTemp');"> Reset </button>
+    <br><br>
+    <button onclick="convertt()"> Convert Now </button>
+    <h3 id="result" style="font-style: italic;"> </h3>
+
+    <script>
+        function convertt(){
+            let rdBtn1 = document.getElementById('C-radio');
+            let rdBtn2 = document.getElementById('F-radio');
+
+            if(rdBtn1.checked){
+                convertToCel();
+            } else if(rdBtn2.checked) {
+                convertToFah();
+            }
+            else{
+                document.getElementById("result").innerText = "Select one of the Raido buttons ";
+
+            }
+        }
+
+        function convertToCel(){
+            let Fehrenheit = JSON.parse(localStorage.getItem('fTemp')) || document.getElementById("temperature").value;
+            let C = (Fehrenheit-32)*(5/9);
+            console.log("Temp in Celcius is : "+C);
+            document.getElementById("result").innerText = "Provided is Fehrenheit "+ Fehrenheit +" Converted to temperature in Celcius is " +C;
+
+            ///storing the result  
+            localStorage.setItem("CTemp", JSON.stringify(C));
+            document.getElementById("temperature").value = null;
+        }
+
+        
+
+
+        function convertToFah(){
+            let Celcius = JSON.parse(localStorage.getItem('CTemp')) || document.getElementById("temperature").value ;
+            let f = (Celcius*(9/5))+32;
+            console.log("Temp in Fehrenheit is : "+f);
+            document.getElementById("result").innerText = "Temperature in Fehrenheit is " +f;
+            
+            /// storing the result 
+            localStorage.setItem("fTemp", JSON.stringify(f));
+            document.getElementById("temperature").value = null;
+        }
+
+        
+
+    </script>
+
+</body>
+</html>
