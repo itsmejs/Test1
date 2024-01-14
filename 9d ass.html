@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input placeholder="Enter Your Name" class="inputName" 
+    onkeydown="if(event.key==='Enter'){
+        getName();
+   } " onkeyup=""> 
+    <button onclick="getName()">Submit</button>
+    <h4 class="setName" onclick=""></h4>
+    
+    <script>
+        function getName(){
+            let name = document.querySelector('.inputName').value;
+            document.querySelector('.setName').innerHTML=`Your Name is ${name}`;
+        }
+
+        
+    </script>
+    
+</body>
+</html>

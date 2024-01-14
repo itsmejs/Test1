@@ -3,6 +3,7 @@
 <head>
    <title>Document</title>
     <style>
+        
         .subscribe-Button {
             border: none;
             background-color: black;
@@ -13,23 +14,63 @@
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         }
 
+        .order-amount{
+            padding: 10px;
+        
+
+        }
+
+        .calculate-button{
+            padding: 12px;
+            border : none;
+            background-color: green;
+            font-weight: bold;
+            color: white;
+        }
+
+
     </style>
 
 </head>
 <body>
-    <p>Youtube Subscribe  </p>
+    <p>YouTube Subscribe  </p>
     <button onclick="subsButton()" class="js-subscribe-button subscribe-Button" >Subscribe</button>
+    <br><br>
+    <p>Amason shipping Calculator </p>
+    <p>Orders under $50 - +$10 shipping</p>
+    <p>Orders over $50 - Free Shipping</p>
+    <input placeholder="Enter your order amount"  class="js-orderTotal order-amount" 
+    onkeydown="if(event.key==='Enter'){
+                 calculateShipping();
+            } "> 
+    <button onclick="calculateShipping(); " class="calculate-button">Calculate</button>  
+    <p class="js-shipping-amount"> </p>
 
     <script>
+
         function subsButton(){
-                let isClicked = document.querySelector('.js-subscribe-button');
-                    
-                if(isClicked.innerHTML ==='Subscribe' ){
-                    isClicked.innerHTML = 'Subscribed';
-                } else{
-                    isClicked.innerHTML='Subscribe';
-                }
+            let isClicked = document.querySelector('.js-subscribe-button');
+                
+            if(isClicked.innerHTML ==='Subscribe' ){
+                isClicked.innerHTML = 'Subscribed';
+            } else{
+                isClicked.innerHTML='Subscribe';
+            }
            
+        }
+
+        function calculateShipping(){
+            let orderAmount = Number(document.querySelector('.js-orderTotal').value);
+            console.log(orderAmount);
+            if(orderAmount<=50){
+
+                document.querySelector('.js-shipping-amount').innerHTML = `Your order amount :${orderAmount} Total will be ${orderAmount + 10} `;
+                document.querySelector('.js-orderTotal').value = " ";
+            }
+            else{
+                document.querySelector('.js-shipping-amount').innerHTML = `Total will be ${orderAmount} `;
+            }
+
         }
 
     </script>
