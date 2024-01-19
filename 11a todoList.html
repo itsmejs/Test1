@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div>
+            <p>ToDo List </p>
+            <input placeholder="Enter ToDo" class="js-input-todo" onkeydown="
+                if(event.key==='Enter'){
+                    addTodo();
+                }">
+            
+            <button onclick="addTodo()" >Add</button>
+            <div class="js-push-todo"></div>
+
+
+        </div>
+    </div>
+
+
+    <script src="scripts/11-mytodo.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+body{
+    font-size:small;
+}
+
+.grid-centent,
+.pushed-todo-element{
+    display: grid;
+    grid-template-columns: 200px 150px 100px;
+    grid-gap: 5px;   
+   }
+
+.add-button{
+    border: none;
+   
+    padding: 10px 15px;
+}
+
+.todo-pushed,
+.todo-list,
+.input-element,
+.input-date,
+.add-button{
+    border-bottom: none;
+    border-left: none;
+    border-top: 1px;
+    border-left: 1px;
+    border-style:solid;
+    border-color :coral;
+    padding: 10px 15px;
+
+}
+
+
+
+
